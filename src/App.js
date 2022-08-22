@@ -1,24 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react';
+import React from 'react';
+import {FaTwitter, FaTumblr} from 'react-icons/fa';
 
 function App() {
+
+  const [Quotes, setQuotes] = useState('');
+  const [Author, setAuthor] = useState('');
+
+
+  useEffect(() => {
+
+    const fetchQuotes = async () => {
+      const request = await fetch("https://zenquotes.io/api/quotes", {mode:'cors'}).then((res) => {
+        return res.json()
+      })
+      // setQuotes(request);
+      console.log(request);
+    }
+
+    fetchQuotes();
+    
+    const newQuote = () => {
+      const indexQuotes = Math.floor(Math.random() * fetchQuotes.length)
+      return fetchQuotes[indexQuotes];
+    }
+  }, [])
+
+
+  
+
+  const handleClick = () => {
+    // setQuotes(newQuote.q);
+    // setAuthor(newQuote.a);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div id="quote-box">
+      <div id="content-wrapper">
+        <h1 id="text">{ Quotes }</h1>
+        <p id="author">- { Author }</p>
+        <div id="below-author">
+          <div id="icons">
+            <div id="twitter-icon">
+              <a href="twitter.com/intent/tweet" id="tweet-quote"><FaTwitter size={20} style={{color: "#fff"}} className="fas fa-twitter" /></a>
+            </div>
+            <div id="tumblr-icon">
+              <FaTumblr size={20} style={{color: "#fff"}} className="fas fa-tumblr" />
+            </div>
+          </div>
+          <div id="new-quote-button">
+            <button id="new-quote" onClick={handleClick} style={{color: "#fff"}}>New Quote</button>
+          </div>
+        </div>
+      </div>
+    </div> 
   );
 }
 
