@@ -7,6 +7,8 @@
 
 :root {
   --text-color: black;
+  --background-color1: yellowgreen;
+  background-color: var(--background-color1);
 }
 
 #quote-box {
@@ -15,7 +17,7 @@
   max-width: 1160px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: grey;
+  background-color: white;
   /* border: 5px solid black; */
   width: 50%;
   height: 50vh;
@@ -23,25 +25,52 @@
   margin-top: 10%;
 }
 
+#text-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1160px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 75px;
+  font-size: 0.8rem;
+}
+
 h1 {
   padding-top: 10px;
   text-align: center;
-  width: 100%;
+  justify-content: center;
+  /* width: 75%; */
+  object-fit: contain;
+  color: var(--background-color1);
+  padding-bottom: 20px;
+}
+
+h1::before {
+  content: '" ';
+}
+
+h1::after {
+  content: ' "';
 }
 
 p {
   text-align: right;
   /* padding-right: 150px; */
   width: 100%;
+  color: var(--background-color1);
+  font-size: 1.2rem
 }
 
 #content-wrapper {
-  width: 100%;
-  padding: 5px 25px 25px 25px;
+  width: 90%;
+  padding: 5px 25px 50px 25px;
+          /*top right bottom left */
 }
 
 #below-author {
   display: flex;
+  position: sticky;
+  justify-content: space-between;
 }
 
 #icons {
@@ -52,19 +81,18 @@ p {
 #twitter-icon {
   padding: 7.5px;
   border-radius: 5px;
-  background-color: var(--text-color);
+  background-color: var(--background-color1);
 }
 
 #tumblr-icon {
   padding: 7.5px;
   border-radius: 5px;
-  background-color: var(--text-color);
+  background-color: var(--background-color1);
 }
 
-#new-quote-button {
-  margin: auto;
-  margin-right: 50px;
-}
+/* #new-quote-button {
+  color: var(--background-color1);
+} */
 
 
 
@@ -72,7 +100,7 @@ p {
   padding: 12px;
   border-radius: 5px;
   border-style: none;
-  background-color: var(--text-color);
+  background-color: var(--background-color1);
 }
 
 

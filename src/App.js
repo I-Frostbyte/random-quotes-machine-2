@@ -36,8 +36,10 @@ function App() {
   return (
     <div id="quote-box">
       <div id="content-wrapper">
+        <div id="text-wrapper">
         <h1 id="text">{Quote.q}</h1>
         <p id="author">- {Quote.a}</p>
+        </div>
         <div id="below-author">
           <div id="icons">
             <div id="twitter-icon">
